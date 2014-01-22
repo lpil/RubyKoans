@@ -14,6 +14,10 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  args = [a,b,c].sort
+  raise TriangleError if args.any? { |i| i <= 0 }
+  raise TriangleError if args[0] + args[1] <= args[2]
+
   case [a,b,c].uniq.length
   when 1
     :equilateral
